@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback Rating</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+
+
+    <style>
+        body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.rating-box{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+.star{
+    font-size:40px;
+    color:gray;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.star.active{
+    color:gold;
+}
+
+button{
+    margin-top:20px;
+    padding:10px 20px;
+    background:blue;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:darkblue;
+}
+    </style> 
+
+<div class="rating-box">
+    <h2>Rate Our Service</h2>
+
+    <div class="stars">
+        <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+    </div>
+
+    <p id="rating">Your Rating: 0</p>
+
+    <button onclick="submitRating()">Submit</button>
+</div> 
+
+
+
+<script>
+
+    const stars = document.querySelectorAll(".star");
+const rating = document.getElementById("rating");
+
+let selectedRating = 0;
+
+stars.forEach((star, index) => {
+
+    star.addEventListener("click", () => {
+
+        selectedRating = index + 1;
+
+        stars.forEach((s, i) => {
+            if(i < selectedRating){
+                s.classList.add("active");
+            }else{
+                s.classList.remove("active");
+            }
+        });
+
+        rating.innerText = "Your Rating: " + selectedRating;
+    });
+
+});
+
+function submitRating(){
+
+    if(selectedRating === 0){
+        alert("Please select a rating.");
+    }else{
+        alert("Thank you! You rated us " + selectedRating + " star(s).");
+    }
+
+}
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

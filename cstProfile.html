@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Profile</title>
+
+<style>
+body{
+    font-family:Arial, sans-serif;
+    background:#f4f4f4;
+    padding:20px;
+}
+
+.profile-card{
+    max-width:500px;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h2{
+    text-align:center;
+}
+
+p{
+    font-size:18px;
+    margin:10px 0;
+}
+
+button{
+    padding:10px 20px;
+    cursor:pointer;
+} 
+.container{
+    text-align: center;
+    height: 20px;
+} 
+option{
+    height: 40px;
+} 
+
+.container button{
+    width: 5px;
+    height: 2px;  
+    border: 2px;
+    
+    padding: 15px 15px 15px 15px; 
+    flex-wrap: nowrap;
+    flex-direction: column;
+    
+} 
+
+.container input{
+    padding: 2px 2px 2px 2px; 
+    
+}  
+
+.feedback{
+    margin-left: 200px; 
+    
+} 
+
+a{
+    text-decoration: none;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="profile-card">
+
+    <h2>👤 User Profile</h2>
+
+    <p><strong>Name:</strong> <span id="name"></span></p>
+
+    <p><strong>Email:</strong> <span id="email"></span></p>
+
+    <p><strong>Phone:</strong> <span id="phone"></span></p>
+
+    <p><strong>Date of Birth:</strong> <span id="dob"></span></p>
+
+    <p><strong>Gender:</strong> <span id="gender"></span></p>
+
+    <button onclick="goHome()">
+        Back to Dashboard
+    </button> 
+
+    <button class="feedback"> 
+        <a href="customer feedback.html"> FEEDBACK </a>
+
+    </button>
+
+</div>
+
+<script>
+
+const user =
+JSON.parse(localStorage.getItem("habitTrackerUser"));
+
+if(user){
+
+    document.getElementById("name").textContent =
+    user.name;
+
+    document.getElementById("email").textContent =
+    user.email;
+
+    document.getElementById("phone").textContent =
+    user.phone;
+
+    document.getElementById("dob").textContent =
+    user.dob;
+
+    document.getElementById("gender").textContent =
+    user.gender;
+}
+
+function goHome(){
+    window.location.href = "index.html";
+}
+
+</script>  
+
+
+
+
+
+</body>
+</html> 
+
+
+
+
